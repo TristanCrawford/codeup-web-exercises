@@ -3,39 +3,36 @@
     <head>
         <meta charset="utf-8">
         <title>Form Demo</title>
+        <link rel="stylesheet" href="css/darken.css" type="text/css" media="screen" charset="utf-8">
     </head>
     <body>
-        <h2>Register New User</h2>
+        <h1>Apartment Hunter</h1>
 
         <!-- action attr on a form is WHERE you're sending the form ( URL or a specific file ) -->
         <!-- method is the "type" of request. GET / POST -->
         <!-- GET is used for downloading info ie. Search forms -->
         <!-- POST is used for uploading info ie. Login forms -->
 
-        <a href="?property_type=apartment&zipcode=78254">Click here for all apartments in your zipcode.</a>
-        <br>
-        <h3>Apartment Form</h3>
-        <br>
+        <h3>Apartment Information</h3>
         <form action="" method="GET" id="apartmentForm">
 			<!-- for inputs, name = key in a k,v pair -->
             <label for="property_type">Property Type:</label>
-            <input id="property_type" type="text" name="property_type" placeholder="Input property type here...">
+            <input id="property_type" type="text" name="property_type" placeholder="Apartment, Condo, etc...">
             <br>
             <label for="zipcode">Zip Code:</label>
-            <input id="zipcode" type="zipcode" name="zipcode" placeholder="Input zip code here...">
+            <input id="zipcode" type="zipcode" name="zipcode" placeholder="78XXX">
             <br>
             <button type="submit">Search Now!</button>
         </form>
         <br>
-        <h3>Login Form</h3>
-        <br>
+        <h3>Login</h3>
         <form action="https://hookb.in/v0P7Mk2j" method="GET" id="loginForm">
 			<!-- for inputs, name = key in a k,v pair -->
             <label for="username">Username:</label>
-            <input id="username" type="text" name="username" placeholder="Input your username here...">
+            <input id="username" type="text" name="username" placeholder="Username">
             <br>
             <label for="password">Password:</label>
-            <input id="password" type="password" name="password" placeholder="Input your password here...">
+            <input id="password" type="password" name="password" placeholder="Password">
             <br>
             <button type="submit">Login</button>
         </form>
