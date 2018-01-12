@@ -1,0 +1,63 @@
+#boxes {
+    margin-top: 25px;
+}
+
+.ribbon {
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.title {
+    font-size: 2em;
+}
+
+.box {
+    position: relative;
+    float: left;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    margin: 25px;
+    border: 1px solid black;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: .8em;
+    overflow-wrap: normal;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.box:after {
+    content: url("../img/codeup-arrow.png");
+    position: absolute;
+    top: -35px;
+    right: -37px;
+}
+
+#boxes div:nth-child(odd) {
+    clear: left;
+}
+
+#wave1 {
+    background: #D84231;
+}
+
+#wave2 {
+    background: #EAAE33;
+}
+
+#wave3 {
+    background: #FCF733;
+}
+
+#wave4 {
+    background: #578C05;
+}
+
+#wave5 {
+    background: #234AFB;
+}
+
+#wave6 {
+    background: #DF8BF0;
+}

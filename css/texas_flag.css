@@ -1,0 +1,34 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+#left {
+    display: inline;
+    background-color: #002868;
+    width: 30%;
+    height: 100%;
+    float: left;
+
+    background-image: url("../img/star.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 75%;
+}
+
+#right {
+    display: inline;
+    width: 70%;
+    height: 100%;
+    float: right;
+}
+
+#top {
+    background: #FFFFFF;
+    height: 50%;
+}
+
+#bottom {
+    background: #BF0A30;
+    height: 50%;
+}

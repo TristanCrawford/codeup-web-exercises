@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
+
+body {
+    font-family: "Merriweather", serif;
+    font-size: 1.125em;
+    margin: 0;
+    text-align: center;
+}
+
+h2, h3 {
+    font-family: "Open Sans", sans-serif;
+}
+
+#head {
+    padding: 80px 0;
+}
+
+#login {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #fff3;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 2px;
+}
+
+#logo {
+    display: block;
+    margin: 0 auto;
+}
+
+#overview {
+    text-align: left;
+    padding: 0 32px;
+}
+
+#overview > p {
+    padding-bottom: 16px;
+}
+
+.hint {
+    font-size: .8em;
+}
+
+.dark {
+    background: #cf4646;
+    color: white;
+}
+
+.dark a {
+    color: white;
+}
+
+.dark hr {
+    max-width: 50px;
+    border: 0;
+    border-top: 1px solid #eee;
+    border-width: 3px;
+    margin: 30px auto;
+}
+
+.dark button {
+    padding: 15px 30px;
+    margin: 10px 0;
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.light {
+    background: #FFFFFF;
+    color: black;
+}
+
+.light a {
+    color: white;
+}
+
+.light hr {
+    max-width: 50px;
+    border: 0;
+    border-top: 1px solid #cf4646;
+    border-width: 3px;
+    margin: 30px auto;
+}
+
+.light button {
+    padding: 15px 30px;
+    margin: 10px 0;
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
