@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Rajdhani');
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #333333;
+}
+
+.navbar:after {
+    content: '';
+    width: 100%;
+    display: block;
+    margin-top: -2px;
+    height: 1px;
+}
+
+.inner-block {
+    background: #292929;
+}
+
+body {
+    font-family: "Rajdhani", monospace;
+    text-align: center;
+    background: #333;
+    color: #DADADA;
+}
+
+body {
+    padding-top: 70px;
+}
+
+input {
+    display: block;
+    margin: 0.8em auto;
+    width: 15em;
+    border: none;
+    background: #434343;
+}
+
+hr {
+    border: 1px solid #000000;
+}

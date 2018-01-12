@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url('https://fonts.googleapis.com/css?family=Rajdhani');
 
-html, body {
+body {
     background-color: #282C34;
     /*background: repeat;*/
     /*background-image: url('../img/bg_tile_dark.png');*/
@@ -38,11 +38,11 @@ ul, ol {
 }
 
 ul {
-    list-style: none;
+    list-style-type: none;
 }
 
 ul > li:before {
-    content: '>';
+    content: '💡';
     padding-right: 8px;
 }
 
