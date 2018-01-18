@@ -2,8 +2,10 @@
 
 .one-half,
 .one-third,
+.two-thirds,
 .one-fourth,
-.one-eighth {
+.one-eighth,
+.three-eighths {
     width: 100%;
     background: lightgrey;
     border: 1px solid black;
@@ -37,11 +39,23 @@
         width: 33.33%;
     }
 
+    .two-thirds {
+        width: 66.66%;
+    }
+
     .one-fourth {
         width: 25%;
     }
 
     .one-eighth {
         width: 12.5%;
+    }
+
+    .three-eighths {
+        width: 37.5%;
+    }
+
+    .offset-one-sixteenth {
+        margin-left: 6.25%;
     }
 }
