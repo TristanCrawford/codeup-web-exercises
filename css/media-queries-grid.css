@@ -1,8 +1,25 @@
+/* Nord Color Palette - https://github.com/arcticicestudio/nord */
+@import "nord.css";
+
+/* Mobile Styling */
+
+body {
+    background: var(--nord0);
+    color: var(--nord4);
+    font-family: sans-serif;
+}
+
+.container {
+    width: 90%;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
 .alert-info {
-    background: lightcyan;
+    background: var(--nord2);
     text-align: center;
     padding: 16px;
-    border: 1px solid black;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -10,11 +27,12 @@
 
 .alert-info > a {
     text-decoration: none;
-    color: black;
+    color: var(--nord4);
 }
 
 h1 {
     text-align: center;
+    /* color: var(--nord8); */
 }
 
 .nav-links {
@@ -26,19 +44,46 @@ h1 {
     text-align: center;
     padding: 16px;
     margin: 8px auto;
-    background: lightgrey;
+    background: var(--nord1);
+}
+
+.nav-links > li > a {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    -webkit-transition: color 0.3s;
+    transition: color 0.3s;
+}
+
+.nav-links > li > a:hover {
+    color: var(--nord11);
 }
 
 .header-img > img {
     width: 100%;
+    box-shadow: 6px 6px 3px rgba(0,0,0,0.3);
+}
+
+.sub-section {
+    font-style: italic;
 }
 
 #social-media-links {
-    font-size: 2em;
+    list-style-type: none;
     text-align: right;
 }
 
-/*Desktop Styling*/
+#social-media-links li {
+    display: inline-block;
+}
+
+#social-media-links li > a {
+    font-size: 1.7em;
+    text-decoration: none;
+    color: var(--nord11);
+}
+
+/* Desktop Styling */
 @media screen and (min-width: 768px) {
 
     .one-half {
@@ -58,7 +103,7 @@ h1 {
     }
 
     .row {
-        margin: 0 auto;
+        margin: 2em auto;
     }
 
     .row:after {
@@ -84,4 +129,29 @@ h1 {
         display: inline-block;
     }
 
+    .nav-links > li > a:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: -8px;
+        left: 0;
+        background-color: var(--nord11);
+        visibility: hidden;
+        transform: scaleX(0);
+        -webkit-transform: scaleX(0);
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        -webkit-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .nav-links > li > a:hover:before {
+        visibility: visible;
+        transform: scaleX(1.5);
+        -webkit-transform: scaleX(1.5);
+    }
+
+    section {
+        box-sizing: border-box;
+        padding: 1em;
+    }
 }
