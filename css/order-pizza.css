@@ -1,8 +1,9 @@
-.jumbotron {
+#jumbo {
     background: url('../img/pizza.jpeg') center / cover no-repeat;
+    padding: 4em 0;
 }
 
-.jumbotron > h1 {
+#jumbo > h1 {
     text-align: center;
     background-color: rgba(255,255,255,0.8);
     /* font-size: 48pt; */
