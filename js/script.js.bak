@@ -1,0 +1,53 @@
+//////////////////
+// Movie Rental // 
+//////////////////
+
+var rentalItems = {
+    'The Little Mermaid' : 3,
+    'Brother Bear'       : 5,
+    'Hercules'           : 1
+};
+
+var rentalPrice = 0;
+
+console.group("Movie Rental");
+for(var k in rentalItems) {
+    if(rentalItems.hasOwnProperty(k)) {
+        rentalPrice += rentalItems[k] * 3;
+        console.log("%c" + k + ": $" + rentalItems[k], "color: #ff00ff");
+    }
+}
+console.log("%cTotal Cost: $" + rentalPrice, "color: #00ff00");
+console.groupEnd();
+
+/////////////////
+// Contracting //
+/////////////////
+
+var companies = {
+    'Google'   : [400, 6],
+    'Amazon'   : [380, 4],
+    'Facebook' : [350, 10]
+};
+
+var payment   = 0;
+
+console.group("Contracting");
+for(var c in companies) {
+    if(companies.hasOwnProperty(c)) {
+        payment += companies[c][0] * companies[c][1];
+        console.log("%c" + c + ": " + companies[c][1] + "hrs @ $" + companies[c][0] + "/hr", "color: #ff00ff");
+    }
+}
+console.log("%cPayment: $" + payment, "color: #00ff00");
+console.groupEnd();
+
+//////////////////////
+// Class Enrollment //
+//////////////////////
+
+// TODO
+
+/////////////////////
+// Product Offered //
+/////////////////////
