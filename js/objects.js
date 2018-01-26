@@ -74,6 +74,8 @@
      * > console.log(books[0].author.lastName) // "Adams"
      */
 
+    var books = [];
+
     /**
      * TODO:
      * Loop through the books array and output the following information about
@@ -99,6 +101,14 @@
      *      ...
      */
 
+    // books.forEach( function(book){
+    // 	console.log("Book # %d\nTitle: %s\nAuthor: %s %s\n---",
+    // 		    books.indexOf(book) + 1,
+    // 		    book.title,
+    // 		    book.author.first,
+    // 		    book.author.last);
+    // });
+
     /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
@@ -109,5 +119,27 @@
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+
+    function createBook(books, bookTitle, bookAuthor) {
+	books.push({ title: bookTitle, author: { first: bookAuthor.split(' ')[0], last: bookAuthor.split(' ')[1] } });
+    }
+
+    createBook( books, 'Dank Memes', 'Ayy Lmao');
+    createBook( books, 'Much Book', 'So Wow' );
+    createBook( books, 'The Mysterious Hacker', '4 Chan' );
+    createBook( books, 'I\'m famished.', 'Anita Taco' );
+    createBook( books, 'Death', 'Snu Snu' );
+
+    function showBookInfo(book) {
+	console.log("Book # %d\nTitle: %s\nAuthor: %s %s\n---",
+		    books.indexOf(book) + 1,
+		    book.title,
+		    book.author.first,
+		    book.author.last);
+    }
+
+    books.forEach( function(book){
+	showBookInfo(book);
+    });
 
 })();
