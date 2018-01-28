@@ -89,7 +89,7 @@ console.log("isFalse: " + isFalse(13 > 37));
 // Make a function named isTruthy(input)
 
 function isTruthy(input) {
-    return input === true;
+    return input == true;
 }
 
 console.log("isTruthy: " + isTruthy(1337));
@@ -97,7 +97,7 @@ console.log("isTruthy: " + isTruthy(1337));
 // Make a function named isFalsy(input)
 
 function isFalsy(input) {
-    return input === false;
+    return input == false;
 }
 
 console.log("isFalsy: " + isFalsy(1337));
