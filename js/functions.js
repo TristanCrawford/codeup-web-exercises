@@ -92,7 +92,7 @@ function calculateTip(percentage, total) {
 var billTotal = prompt("What was your bill total?");
 var tipPercentage = prompt("What would you like to tip (%/100)?");
 
-console.log("Tip Amount: $" + calculateTip(tipPercentage, billTotal));
+alert("Tip Amount: $" + calculateTip(tipPercentage, billTotal));
 
 /**
  * TODO:
@@ -109,6 +109,9 @@ console.log("Tip Amount: $" + calculateTip(tipPercentage, billTotal));
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
 
+// Function Definition
 function applyDiscount(price, discount) {
     return ( price - ( price * discount ) ).toFixed(2);
 }
+
+console.log(applyDiscount(billTotal, tipPercentage));
