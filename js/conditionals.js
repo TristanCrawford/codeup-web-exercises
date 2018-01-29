@@ -18,14 +18,22 @@
 
 /* ########################################################################## */
 
-var confirmation = confirm("Would you like to enter a number?");
+function enterANumber() {
 
-if(confirmation) {
-    var num = parseInt(prompt("Enter the number."));
-    alert( (num % 2) === 0 ?"That number is even!" : "That number is odd!");
-    alert("That number plus 100 is " + (num + 100));
-    alert( (num < 0) ? "That number is negative!" : "That number is positive!");
-}
+    var confirmation = confirm("Would you like to enter a number?");
+
+    if(confirmation) {
+        var num = parseInt(prompt("Enter the number."));
+        if(isNaN(num)) {
+            alert("That's not a number!");
+        } else {
+            alert( (num % 2) === 0 ? "That number is even!" : "That number is odd!");
+            alert("That number plus 100 is " + (num + 100));
+            alert( (num < 0) ? "That number is negative!" : "That number is positive!");
+        }
+    }
+    
+};
 
 /**
  * TODO:
@@ -45,24 +53,13 @@ if(confirmation) {
  * console.logging the function's return value
  */
 
-// function analyzeColor(color) {
-//     if(color.toLowerCase() === 'blue') {
-//         return "blue is the color of the sky";
-//     } else if(color.toLowerCase() === 'red') {
-//         return "Strawberries are red";
-//     } else {
-//         return "I don't know anything about " + color;
-//     }
-// }
-
 function analyzeColor(color) {
-    switch(color.toLowerCase()) {
-        case "blue":
-            return "blue is the color of the sky";
-        case "red":
-            return "Strawberries are red";
-        default:
-            return "I don't know anything about " + color;
+    if(color.toLowerCase() === 'blue') {
+        return "blue is the color of the sky";
+    } else if(color.toLowerCase() === 'red') {
+        return "Strawberries are red";
+    } else {
+        return "I don't know anything about " + color;
     }
 }
 
@@ -89,6 +86,19 @@ console.log(analyzeColor(randomColor));
  * TODO:
  * Refactor your above function to use a switch-case statement
  */
+
+randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+analyzeColor = function(color) {
+    switch(color.toLowerCase()) {
+        case "blue":
+            return "Blue is the color of the sky";
+        case "red":
+            return "Strawberries are red";
+        default:
+            return "I don't know anything about " + color;
+    }
+}
 
 /**
  * TODO:
@@ -155,3 +165,14 @@ var billTotal = parseFloat(prompt("What was the total of your bill"));
 alert("Your lucky number was " + luckyNumber);
 alert("Price Before Discount: " + billTotal);
 alert("Price after discount: " + calculateTotal(luckyNumber, billTotal));
+
+// BONUSES
+
+function dayOfTheWeekStartsWithT(input) {
+    var validDays = ['tuesday', 'thursday'];
+    return (validDays.indexOf(String(input)) !== -1) ? true : false;
+}
+
+function isValidPassword(input) {
+    
+}
