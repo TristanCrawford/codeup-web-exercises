@@ -1,3 +1,5 @@
+"use strict";
+
 // var num = 2;
 // var cond = 0;
 //
@@ -21,4 +23,5 @@ do {
     } else {
         console.log("Yay, sold all of my cones!");
     }
+
 } while (allCones > 1);
