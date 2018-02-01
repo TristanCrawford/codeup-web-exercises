@@ -13,8 +13,8 @@
      */
 
     var person = {
-        firstName: "Tristan",
-        lastName: "Crawford"
+        firstName : "Tristan",
+        lastName  : "Crawford"
     };
 
     /**
@@ -53,13 +53,12 @@
         {name: 'George', amount: 320}
     ];
 
-    shoppers.forEach(function(shopper) {
-        if(shopper.amount > 250) {
-            console.log("%s - Original Amount: $%.2f - Discount: %12 - New Amount: $%.2f", shopper.name, shopper.amount, shopper.amount - (shopper.amount * .12));
-        } else {    
-            console.log("%s - Original Amount: $%.2f - Discount: %0", shopper.name, shopper.amount);
-        }
-    });
+    shoppers.forEach( (shopper) => {
+        console.log ( `${shopper.name} - Original Amount: ${shopper.amount}`,
+                    ( (shopper.amount > 250) 
+                        ? `- Discount: 12% - New Amount: ${shopper.amount * .12}` 
+                        : '- Discount: 0%' ) );
+    } );
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -121,7 +120,7 @@
      */
 
     function createBook(books, bookTitle, bookAuthor) {
-	books.push({ title: bookTitle, author: { first: bookAuthor.split(' ')[0], last: bookAuthor.split(' ')[1] } });
+        books.push({ title: bookTitle, author: { first: bookAuthor.split(' ')[0], last: bookAuthor.split(' ')[1] } });
     }
 
     createBook( books, 'Dank Memes', 'Ayy Lmao');
@@ -131,15 +130,11 @@
     createBook( books, 'Death', 'Snu Snu' );
 
     function showBookInfo(book) {
-	console.log("Book # %d\nTitle: %s\nAuthor: %s %s\n---",
-		    books.indexOf(book) + 1,
-		    book.title,
-		    book.author.first,
-		    book.author.last);
+        console.log(`Book # ${books.indexOf(book)}\nTitle: ${book.title}\nAuthor: ${book.author.first} ${book.author.last}`);
     }
 
     books.forEach( function(book){
-	showBookInfo(book);
+        showBookInfo(book);
     });
 
 })();
