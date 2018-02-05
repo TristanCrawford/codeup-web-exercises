@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stopwatch App</title>
+</head>
+<body>
+
+<section>
+    <input type="text" value="00:00:10.00" id="timer">
+
+    <button id="start-btn">Start</button>
+    <button id="stop-btn">Stop</button>
+    <button id="reset-btn">Reset</button>
+</section>
+
+<aside>
+    <ul id="time-list"></ul>
+</aside>
+
+<script>
+
+    var initialTime = 10000, currentTime = 10000.00;
+    var timerInterval;
+
+    var timer = document.getElementById("timer");
+    var timeList = document.getElementById("time-list");
+
+    var startListener = function (event) {
+        timerInterval = setInterval( () => {
+
+            if(currentTime === 0.0) {
+                clearInterval(timerInterval);
+                return;
+            }
+
+            currentTime -= 10;
+            timer.value = `00:00:${(currentTime / 1000).toFixed(2)}`;
+        }, 10);
+    };
+
+    var stopListener = function (event) {
+        if(timerInterval)
+            clearInterval(timerInterval);
+    };
+
+    var resetListener = function (event) {
+        // timer.value = `00:00:${( initialTime / 1000 ).toFixed(2)}`;
+        timeList.innerHTML += `<li>${(currentTime / 1000).toFixed(2)}</li>`;
+    };
+
+    document.getElementById("start-btn").addEventListener("click", startListener, false);
+    document.getElementById("stop-btn").addEventListener("click", stopListener, false);
+    document.getElementById("reset-btn").addEventListener("click", resetListener, false);
+
+</script>
+</body>
+</html>

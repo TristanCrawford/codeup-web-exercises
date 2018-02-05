@@ -1,85 +1,276 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8"/>
-	<title>Document</title>
-	<style>
-		#map-canvas {
-			height: 90vh;
-		}
-	</style>
+    <meta charset="UTF-8"/>
+    <title>Document</title>
+    <style>
+        #map-canvas {
+            height: 90vh;
+        }
+    </style>
 </head>
 <body>
 <div id="map-canvas"></div>
 
-<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcwwgkF8AxCL3IaVUv4S3jTVrq6prqIF8">
-</script>
+<script>
 
-<script type="text/javascript">
-    (function(){
+    "use strict";
 
-        "use strict";
+    function initializeMap() {
 
         var mapOptions = {
-
             zoom: 18,
-
             center: {
                 lat: 29.4937652,
                 lng: -98.7076454
             },
-
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            styles: [
+                {
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#212121"
+                        }
+                    ]
+                },
+                {
+                    "elementType": "labels.icon",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#757575"
+                        }
+                    ]
+                },
+                {
+                    "elementType": "labels.text.stroke",
+                    "stylers": [
+                        {
+                            "color": "#212121"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "administrative",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#757575"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "administrative.country",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#9e9e9e"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "administrative.land_parcel",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "administrative.locality",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#bdbdbd"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#757575"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi.park",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#181818"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi.park",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#616161"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi.park",
+                    "elementType": "labels.text.stroke",
+                    "stylers": [
+                        {
+                            "color": "#1b1b1b"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road",
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                        {
+                            "color": "#2c2c2c"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#8a8a8a"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.arterial",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#373737"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.highway",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#3c3c3c"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.highway.controlled_access",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#4e4e4e"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.local",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#616161"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "transit",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#757575"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "water",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#000000"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "water",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#3d3d3d"
+                        }
+                    ]
+                }
+            ]
+        };
 
         var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
         var restaurants = {
             steakAndShake: {
-                address: "...",
+                address: "5619 W Loop 1604 N, San Antonio, TX 78253",
                 info: "The Royale burger was sent from the heavens."
             },
             inNOut: {
-                address: "...",
+                address: "10918 Culebra Rd, San Antonio, TX 78253",
                 info: "Best burgers ever... period."
             },
             mcDonalds: {
-                address: "...",
+                address: "3971 Fredericksburg Rd, San Antonio, TX 78201",
                 info: "Fries are good, that's about it."
             },
             subway: {
-                address: "...",
+                address: "USAA, 9800 Fredericksburg Rd H, San Antonio, TX 78288",
                 info: "Eat Fresh, nuff said."
             },
             zocalo: {
-                address: "...",
+                address: "175 E Houston St #115, San Antonio, TX 78205",
                 info: "Phat burritos, y'all"
             }
-        }
+        };
 
         var geocoder = new google.maps.Geocoder();
 
-        // geocoder.geocode({"address": steakAndShake}, function (results, status) {
-			// if(status == google.maps.GeocoderStatus.OK) {
-			//     var loc = results[0].geometry.location;
-        //         map.setCenter(loc);
-        //         map.setZoom(18);
-        //
-        //         marker = new google.maps.Marker({
-			// 		position: loc,
-			// 		map: map,
-        //             animation: google.maps.Animation.DROP
-			// 	});
-        //
-        //         marker.addListener('click', function () {
-        //             infoWindow.open(map, marker);
-        //         });
-        //     } else {
-			//     console.log("Geocoding failed :( + " + status);
-			// }
-        // });
-    })();
+        for( var r in restaurants ) {
+
+            var restaurant = restaurants[r];
+
+            geocoder.geocode({"address": restaurant.address}, function (results, status) {
+                if(status === google.maps.GeocoderStatus.OK) {
+                    var loc = results[0].geometry.location;
+                    // map.setCenter(loc);
+                    // map.setZoom(18);
+
+                    var marker = new google.maps.Marker({
+                        position: loc,
+                        map: map,
+                        animation: google.maps.Animation.DROP
+                    });
+
+                    var infoWindow = new google.maps.InfoWindow({
+                        content: restaurant.info
+                    });
+
+                    marker.addListener('click', function () {
+                        infoWindow.open(map, marker);
+                    });
+                } else {
+                    console.log("Geocoding failed :( + " + status);
+                }
+            });
+        }
+    }
 </script>
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACZuNhBm9mkbAEwlz4h1xJpOixuOvT8GA&callback=initializeMap" async defer></script>-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACZuNhBm9mkbAEwlz4h1xJpOixuOvT8GA&callback=initializeMap&center=-33.88161796346202,151.1146377563476&zoom=13&format=png&maptype=roadmap&style=element:geometry%7Ccolor:0x212121&style=element:labels.icon%7Cvisibility:off&style=element:labels.text.fill%7Ccolor:0x757575&style=element:labels.text.stroke%7Ccolor:0x212121&style=feature:administrative%7Celement:geometry%7Ccolor:0x757575&style=feature:administrative.country%7Celement:labels.text.fill%7Ccolor:0x9e9e9e&style=feature:administrative.land_parcel%7Cvisibility:off&style=feature:administrative.locality%7Celement:labels.text.fill%7Ccolor:0xbdbdbd&style=feature:poi%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:poi.park%7Celement:geometry%7Ccolor:0x181818&style=feature:poi.park%7Celement:labels.text.fill%7Ccolor:0x616161&style=feature:poi.park%7Celement:labels.text.stroke%7Ccolor:0x1b1b1b&style=feature:road%7Celement:geometry.fill%7Ccolor:0x2c2c2c&style=feature:road%7Celement:labels.text.fill%7Ccolor:0x8a8a8a&style=feature:road.arterial%7Celement:geometry%7Ccolor:0x373737&style=feature:road.highway%7Celement:geometry%7Ccolor:0x3c3c3c&style=feature:road.highway.controlled_access%7Celement:geometry%7Ccolor:0x4e4e4e&style=feature:road.local%7Celement:labels.text.fill%7Ccolor:0x616161&style=feature:transit%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:water%7Celement:geometry%7Ccolor:0x000000&style=feature:water%7Celement:labels.text.fill%7Ccolor:0x3d3d3d&size=480x360"></script>
 </body>
 </html>
