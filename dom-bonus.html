@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<h2>DOM Bonus</h2>
+<ul id="my-list"></ul>
+
+<script>
+    (function() {
+
+        var htmlBody = document.getElementsByTagName("body")[0];
+        htmlBody.style.background = "#242424";
+        htmlBody.style.color = "#F4F4F4";
+
+        var myList = document.getElementById("my-list");
+        myList.style.listStyle = "lower-roman";
+
+        while(true) {
+
+            var wantsToAdd = confirm("Do you want to add a list item?");
+
+            if(!wantsToAdd)
+                break;
+
+            var liInput = prompt("What would you like to add?");
+
+            myList.innerHTML += "<li>" + liInput + "</li>";
+
+        }
+
+    })();
+</script>
+</body>
+</html>
