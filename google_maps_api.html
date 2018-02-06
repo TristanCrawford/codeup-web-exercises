@@ -214,63 +214,87 @@
         };
 
         var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+        var markers = [];
 
-        var restaurants = {
-            steakAndShake: {
+        var restaurants = [
+            {
+                name: "Steak n' Shake",
                 address: "5619 W Loop 1604 N, San Antonio, TX 78253",
-                info: "The Royale burger was sent from the heavens."
+                desc: "The Royale burger was sent from the heavens.",
+                marker: null,
+                info: null,
+                icon: "https://freeiconshop.com/wp-content/uploads/edd/burger-flat.png"
             },
-            inNOut: {
+            {
+                name: "In-N-Out",
                 address: "10918 Culebra Rd, San Antonio, TX 78253",
-                info: "Best burgers ever... period."
+                desc: "Best burgers ever... period.",
+                marker: null,
+                info: null,
+                icon: "https://freeiconshop.com/wp-content/uploads/edd/burger-flat.png"
             },
-            mcDonalds: {
+            {
+                name: "McDonalds",
                 address: "3971 Fredericksburg Rd, San Antonio, TX 78201",
-                info: "Fries are good, that's about it."
+                desc: "Fries are good, that's about it.",
+                marker: null,
+                info: null,
+                icon: "http://thefeastbox.in/wp-content/uploads/2017/08/fries.png"
             },
-            subway: {
+            {
+                name: "Subway",
                 address: "USAA, 9800 Fredericksburg Rd H, San Antonio, TX 78288",
-                info: "Eat Fresh, nuff said."
+                desc: "Eat Fresh, nuff said.",
+                marker: null,
+                info: null,
+                icon: "https://image.flaticon.com/icons/png/128/224/224479.png"
             },
-            zocalo: {
+            {
+                name: "Zocalo",
                 address: "175 E Houston St #115, San Antonio, TX 78205",
-                info: "Phat burritos, y'all"
+                desc: "Phat burritos, y'all",
+                marker: null,
+                info: null,
+                icon: "https://image.flaticon.com/icons/png/128/184/184534.png"
             }
-        };
+        ];
 
         var geocoder = new google.maps.Geocoder();
 
-        for( var r in restaurants ) {
-
-            var restaurant = restaurants[r];
-
-            geocoder.geocode({"address": restaurant.address}, function (results, status) {
+        restaurants.forEach(function(r) {
+            geocoder.geocode({"address": r.address}, function (results, status) {
                 if(status === google.maps.GeocoderStatus.OK) {
+
                     var loc = results[0].geometry.location;
-                    // map.setCenter(loc);
-                    // map.setZoom(18);
 
-                    var marker = new google.maps.Marker({
-                        position: loc,
+                    var icon = {
+                        url: r.icon,
+                        scaledSize: new google.maps.Size(50,50)
+                    };
+
+                    r.marker = new google.maps.Marker({
                         map: map,
-                        animation: google.maps.Animation.DROP
+                        position: loc,
+                        title: r.name,
+                        animation: google.maps.Animation.DROP,
+                        icon: icon
                     });
 
-                    var infoWindow = new google.maps.InfoWindow({
-                        content: restaurant.info
+                    r.info = new google.maps.InfoWindow({
+                        content: `<h3>${r.desc}</h3>`
                     });
 
-                    marker.addListener('click', function () {
-                        infoWindow.open(map, marker);
+                    r.marker.addListener("click", function (event) {
+                        r.info.open(map, r.marker);
                     });
+
                 } else {
                     console.log("Geocoding failed :( + " + status);
                 }
             });
-        }
+        });
     }
 </script>
-<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACZuNhBm9mkbAEwlz4h1xJpOixuOvT8GA&callback=initializeMap" async defer></script>-->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACZuNhBm9mkbAEwlz4h1xJpOixuOvT8GA&callback=initializeMap&center=-33.88161796346202,151.1146377563476&zoom=13&format=png&maptype=roadmap&style=element:geometry%7Ccolor:0x212121&style=element:labels.icon%7Cvisibility:off&style=element:labels.text.fill%7Ccolor:0x757575&style=element:labels.text.stroke%7Ccolor:0x212121&style=feature:administrative%7Celement:geometry%7Ccolor:0x757575&style=feature:administrative.country%7Celement:labels.text.fill%7Ccolor:0x9e9e9e&style=feature:administrative.land_parcel%7Cvisibility:off&style=feature:administrative.locality%7Celement:labels.text.fill%7Ccolor:0xbdbdbd&style=feature:poi%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:poi.park%7Celement:geometry%7Ccolor:0x181818&style=feature:poi.park%7Celement:labels.text.fill%7Ccolor:0x616161&style=feature:poi.park%7Celement:labels.text.stroke%7Ccolor:0x1b1b1b&style=feature:road%7Celement:geometry.fill%7Ccolor:0x2c2c2c&style=feature:road%7Celement:labels.text.fill%7Ccolor:0x8a8a8a&style=feature:road.arterial%7Celement:geometry%7Ccolor:0x373737&style=feature:road.highway%7Celement:geometry%7Ccolor:0x3c3c3c&style=feature:road.highway.controlled_access%7Celement:geometry%7Ccolor:0x4e4e4e&style=feature:road.local%7Celement:labels.text.fill%7Ccolor:0x616161&style=feature:transit%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:water%7Celement:geometry%7Ccolor:0x000000&style=feature:water%7Celement:labels.text.fill%7Ccolor:0x3d3d3d&size=480x360"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACZuNhBm9mkbAEwlz4h1xJpOixuOvT8GA&callback=initializeMap" async defer></script>
 </body>
 </html>
