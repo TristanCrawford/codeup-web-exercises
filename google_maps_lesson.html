@@ -11,12 +11,18 @@
 
 <div id="map"></div>
 <button id="cycle-type">Change Map Type</button>
+<button id="delete-markers">Delete All Markers</button>
 
 <script>
 
+    "use strict";
+
     var map, geocoder;
 
+    var markers = [];
+
     var cycleBtn = document.getElementById("cycle-type");
+    var deleteBtn = document.getElementById("delete-markers");
 
     function initializeMap() {
 
@@ -28,31 +34,56 @@
         geocoder = new google.maps.Geocoder();
 
         geocoder.geocode({"address": "The Alamo"}, function(results, status) {
-           if(status == 'OK') {
-               map.setCenter(results[0].geometry.location);
-               map.setTilt(45);
-           } else {
-               alert("Geocoding failed :(");
-           }
+            if(status == 'OK') {
+                map.setCenter(results[0].geometry.location);
+                map.setTilt(45);
+
+                markers.push(new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location,
+                    title: "The Alamo!",
+                    draggable: true
+                }));
+
+            } else {
+                alert("Geocoding failed :(");
+            }
+        });
+
+        map.addListener("dblclick", function (event) {
+            markers.push(new google.maps.Marker({
+                map: map,
+                position: event.latLng,
+                draggable: true
+            }));
+        });
+
+        cycleBtn.addEventListener("click", function (event) {
+            switch (map.getMapTypeId()) {
+                case 'satellite':
+                    map.setMapTypeId('roadmap');
+                    break;
+                case 'roadmap':
+                    map.setMapTypeId('hybrid');
+                    break;
+                case 'hybrid':
+                    map.setMapTypeId('terrain');
+                    break;
+                case 'terrain':
+                    map.setMapTypeId('satellite');
+                    break;
+            }
+        });
+
+        deleteBtn.addEventListener("click", function (event) {
+
+            markers.forEach(function (m) {
+                m.setMap(null);
+            });
+
+            markers.length = 0;
         });
     }
-
-    cycleBtn.addEventListener("click", function (event) {
-        switch (map.getMapTypeId()) {
-            case 'satellite':
-                map.setMapTypeId('roadmap');
-                break;
-            case 'roadmap':
-                map.setMapTypeId('hybrid');
-                break;
-            case 'hybrid':
-                map.setMapTypeId('terrain');
-                break;
-            case 'terrain':
-                map.setMapTypeId('satellite');
-                break;
-        }
-    });
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACZuNhBm9mkbAEwlz4h1xJpOixuOvT8GA&callback=initializeMap" async defer></script>
