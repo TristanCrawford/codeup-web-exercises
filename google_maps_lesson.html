@@ -4,20 +4,55 @@
     <meta charset="UTF-8">
     <title>Google Maps Lesson</title>
     <style>
-        #map { width: 800px; height: 300px; }
+        #map { width: 1000px; height: 400px; }
     </style>
 </head>
 <body>
 
 <div id="map"></div>
+<button id="cycle-type">Change Map Type</button>
 
 <script>
 
     var map, geocoder;
 
+    var cycleBtn = document.getElementById("cycle-type");
+
     function initializeMap() {
 
+        map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 20,
+            mapTypeId: 'satellite'
+        });
+
+        geocoder = new google.maps.Geocoder();
+
+        geocoder.geocode({"address": "The Alamo"}, function(results, status) {
+           if(status == 'OK') {
+               map.setCenter(results[0].geometry.location);
+               map.setTilt(45);
+           } else {
+               alert("Geocoding failed :(");
+           }
+        });
     }
+
+    cycleBtn.addEventListener("click", function (event) {
+        switch (map.getMapTypeId()) {
+            case 'satellite':
+                map.setMapTypeId('roadmap');
+                break;
+            case 'roadmap':
+                map.setMapTypeId('hybrid');
+                break;
+            case 'hybrid':
+                map.setMapTypeId('terrain');
+                break;
+            case 'terrain':
+                map.setMapTypeId('satellite');
+                break;
+        }
+    });
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACZuNhBm9mkbAEwlz4h1xJpOixuOvT8GA&callback=initializeMap" async defer></script>
