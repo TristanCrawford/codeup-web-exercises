@@ -8,22 +8,29 @@
     <title>Google Maps Lesson Exercise</title>
     <style>
         #map {
-            width: 500px;
-            height: 500px;
+            width: 800px;
+            height: 400px;
         }
     </style>
 </head>
 <body>
 
 <div id="map"></div>
-<input type="text" name="address" id="address">
+
+<input type="text" name="lat" id="lat" placeholder="Latitude">
+<input type="text" name="lng" id="lng" placeholder="Longitude">
 <button id="geocode-btn">Geocode It!</button>
+<button id="zoom-in-btn">+</button>
+<button id="zoom-out-btn">-</button>
 
 <script>
         var map, geocoder;
 
         var geocodeButton = document.getElementById("geocode-btn");
-        var addressInput = document.getElementById("address");
+        var zoomInButton = document.getElementById("zoom-in-btn");
+        var zoomOutButton = document.getElementById("zoom-out-btn");
+        var latInput = document.getElementById("lat");
+        var lngInput = document.getElementById("lng");
 
         function initializeMap() {
 
@@ -33,13 +40,6 @@
 
             geocoder = new google.maps.Geocoder();
 
-            geocoder.geocode({"address": "9603 Addersley Drive"}, function (results, status) {
-                if(status == google.maps.GeocoderStatus.OK) {
-                    map.setCenter(results[0].geometry.location);
-                } else {
-                    alert("Geocoding Failed :(");
-                }
-            })
         }
 
         geocodeButton.addEventListener("click", function (event) {
@@ -49,13 +49,23 @@
                 return;
             }
 
-            geocoder.geocode({"address": addressInput.value}, function (results, status) {
+            geocoder.geocode({"location": { lat: parseFloat(latInput.value), lng: parseFloat(lngInput.value) }}, function (results, status) {
                if(status == google.maps.GeocoderStatus.OK) {
                    map.setCenter(results[0].geometry.location);
                } else {
                    alert("Geocoder could not interpret that address :(");
                }
             });
+        });
+
+        zoomInButton.addEventListener("click", function (event) {
+            var current = map.getZoom();
+            map.setZoom(current + 5);
+        });
+
+        zoomOutButton.addEventListener("click", function (event) {
+            var current = map.getZoom();
+            map.setZoom(current - 5);
         });
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACZuNhBm9mkbAEwlz4h1xJpOixuOvT8GA&callback=initializeMap" async defer></script>
