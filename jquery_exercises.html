@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery Exercise</title>
+    <style>
+        .codeup {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+
+<h1 class="codeup">This is a header.</h1>
+<p>This is a paragraph</p>
+<ul class="codeup">
+    <li>List Item 1</li>
+    <li>List Item 2</li>
+    <li>List Item 3</li>
+</ul>
+
+<div></div>
+
+<script src="js/jquery-2.2.4.min.js"></script>
+<script>
+    {
+        "use strict";
+
+        $(document).ready(function () {
+            $('li').css('font-size', '20px');
+            $('h1, p, li').css('background', 'yellow');
+            alert( $('h1')[0].innerText );
+        });
+    }
+</script>
+</body>
+</html>
