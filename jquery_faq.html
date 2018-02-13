@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FAQ</title>
+    <style>
+        .invisible {
+            display: none;
+        }
+
+        dt {
+            cursor: pointer;
+            color: #00F;
+        }
+
+        dt:after {
+            content: '⯆';
+            margin-left: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<dl>
+    <dt>How big is Theodore Roosevelt National Park?</dt>
+    <dd>The park's total acreage is 70,466.89 acres.</dd>
+    <dt>When is the park open? Does the park ever close?</dt>
+    <dd>The park is open 24 hours a day, year-round.</dd>
+    <dt>Are pets allowed?</dt>
+    <dd>Yes, with restrictions. Be aware that pets, especially dogs, can upset park wildlife and create a dangerous situation.</dd>
+    <dt>Where can I hike?</dt>
+    <dd>There are nearly 100 miles of trails in Theodore Roosevelt National Park. Hiking trails are shown on the Park Map.</dd>
+    <dt>Can I camp in the backcountry?</dt>
+    <dd>Yes.</dd>
+    <dt>Can I canoe or kayak the Little Missouri River through the park?</dt>
+    <dd>Yes. The Little Missouri River is typically quite shallow, and May and June are the best months to run the river.</dd>
+    <dt>Where can I ride my bicycle?</dt>
+    <dd>Park roads are open to bicycles. Off-road bicycling, including on hiking trails, is prohibited.</dd>
+    <dt>Can I bring my horse to the park?</dt>
+    <dd>Yes, the park is open for private horse use.</dd>
+    <dt>Where can I camp?</dt>
+    <dd>The Cottonwood Campground in the South Unit and the Juniper Campground in the North Unit are open year-round for camping.</dd>
+    <dt>Are bison dangerous?</dt>
+    <dd>Bison may be generally passive, but they can become agitated and charge without warning.</dd>
+</dl>
+
+<script src="js/jquery-2.2.4.min.js"></script>
+<script>
+    "use strict";
+    {
+        $('dd').addClass('invisible');
+
+        let dt = $('dt');
+
+        dt.click(function (ev) {
+            $(this).next().toggleClass('invisible');
+        });
+    }
+</script>
+</body>
+</html>

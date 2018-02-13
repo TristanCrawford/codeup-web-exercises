@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tic Tac Toe</title>
+</head>
+<style>
+
+    .row {
+        text-align: center;
+    }
+
+    .box {
+        display: inline-block;
+        box-sizing: border-box;
+        width: 20vh;
+        height: 20vh;
+        /*border: 1px solid black;*/
+        box-shadow: inset 2px 2px 6px #000;
+        text-align: center;
+        line-height: 20vh;
+    }
+
+    .bg-x {
+        background: url("https://vignette.wikia.nocookie.net/zelda/images/6/6d/Bomb_%28The_Wind_Waker%29.png/revision/latest?cb=20090223000314") center no-repeat;
+        background-size: 8vh;
+        animation: scale-in 0.3s cubic-bezier(0.5, -0.5, 0.5, 1.5);
+    }
+
+    .bg-o {
+        background: url("https://s-media-cache-ak0.pinimg.com/originals/8d/cf/db/8dcfdb5fcf8eeb7b5826d007dc9c1ba7.png") center no-repeat;
+        background-size: 8vh;
+        animation: scale-in 0.3s cubic-bezier(0.5, -0.5, 0.5, 1.5);
+    }
+
+    @keyframes scale-in {
+        from { background-size: 0; }
+        to { background-size: 8vh; }
+    }
+
+</style>
+<body>
+
+<div class="board">
+    <div class="row">
+        <h1>Tic Tac Toe</h1>
+    </div>
+    <div class="row">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <div class="row">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <div class="row">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</div>
+
+<script src="js/jquery-2.2.4.min.js"></script>
+<script>
+
+    let boxes = $('.box');
+    let turnOne = true;
+
+    boxes.each( function (i, v) {
+       $(this).click(function (event) {
+           $(this).addClass( (turnOne) ? 'bg-x' : 'bg-o' );
+           $(this).off('click');
+           turnOne = !turnOne;
+       });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Konami Code Exercise</title>
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <style>
+        .triforce {
+            visibility: visible;
+            fill: gold;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            -webkit-animation: fadein 2s;
+            -o-animation: fadein 2s;
+            animation: fadein 2s;
+        }
+
+        @keyframes fadein {
+            from{ opacity: 0; }
+            to{ opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<svg height="50vh" width="50vh" style="visibility: hidden;" viewBox="0 0 100 100">
+    <path d="M0 80 L50 0 L100 80 Z M24 41 L50 80 L76 41" fill-rule="evenodd" />
+</svg>
+
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="js/materialize.min.js"></script>
+<script>
+
+    "use strict";
+
+    // let konami = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+    let input = "";
+    let unlockSound = new Audio('./audio/OOT_Secret.wav');
+
+    $(document).keyup(function (event) {
+
+        input += event.keyCode;
+
+        if( input.match(/3838404037393739666513/) ) {
+            input = "";
+            unlockSound.play();
+            $('svg').addClass('triforce');
+        }
+    });
+
+</script>
+</body>
+</html>
