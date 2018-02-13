@@ -44,6 +44,30 @@
     <dd>Bison may be generally passive, but they can become agitated and charge without warning.</dd>
 </dl>
 
+<h3>Sequoia</h3>
+<ul>
+    <li>Location: Tulare County, California, United States</li>
+    <li>Area: 404,064 acres </li>
+    <li>Established	September 25, 1890</li>
+    <li>Visitors: 1,254,688 (in 2016)</li>
+</ul>
+<h3>Teddy</h3>
+<ul>
+    <li>Location: Billings County & McKenzie County, North Dakota, USA</li>
+    <li>Area: 70,446 acres (285.08 km2)</li>
+    <li>Established	November 10, 1978</li>
+    <li>Visitors: 753,880 (in 2016)</li>
+</ul>
+<h3>Redwood</h3>
+<ul>
+    <li>Location: Humboldt County & Del Norte County, California, US</li>
+    <li>Area 139,000 acres (560 km2)</li>
+    <li>Established August 27, 1969</li>
+    <li>Visitors 536,297 (in 2016)</li>
+</ul>
+
+<button id="yellow" type="submit">Yellow</button>
+
 <script src="js/jquery-2.2.4.min.js"></script>
 <script>
     "use strict";
@@ -54,6 +78,22 @@
 
         dt.click(function (ev) {
             $(this).next().toggleClass('invisible');
+        });
+
+        $('#yellow').click(function (ev) {
+            $('ul').each(function (i, v) {
+                $(this).children().last().css('background', 'yellow');
+            });
+        });
+
+        $('h3').click(function (ev) {
+            $(this).next().each( function (i, v) {
+                $(this).children().css('font-weight', 'bold');
+            });
+        });
+
+        $('li').click(function (ev) {
+            $(this).parent().children().first().css('color', 'blue');
         });
     }
 </script>
