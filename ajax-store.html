@@ -35,8 +35,16 @@
 
     $.get('/data/inventory.json').done( (data, status, jqXhr) => {
         data.forEach( (obj) => {
-            let el = `<tr><td>${obj.title}</td><td>${obj.quantity}</td><td>$${obj.price}</td><td>${obj.categories}</td></tr>`;
-            $('#insertProducts').append(el);
+            
+            let html;
+            html += '<tr>';
+            html += '<td>' + obj.title + '</td>';
+            html += '<td>' + obj.quantity + '</td>';
+            html += '<td>' + obj.price + '</td>';
+            html += '<td>' + obj.categories + '</td>';
+            html += '</tr>';
+
+            $('#insertProducts').append(html);
         });
     });
 }
