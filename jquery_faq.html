@@ -21,6 +21,12 @@
 </head>
 <body>
 
+<h2>Please Register</h2>
+
+<div id="newsletter">
+    <h1>Would You Like To Sign Up For Our Newsletter? <span>x</span></h1>
+</div>
+
 <dl>
     <dt>How big is Theodore Roosevelt National Park?</dt>
     <dd>The park's total acreage is 70,466.89 acres.</dd>
@@ -69,33 +75,6 @@
 <button id="yellow" type="submit">Yellow</button>
 
 <script src="js/jquery-2.2.4.min.js"></script>
-<script>
-    "use strict";
-    {
-        $('dd').addClass('invisible');
-
-        let dt = $('dt');
-
-        dt.click(function (ev) {
-            $(this).next().toggleClass('invisible');
-        });
-
-        $('#yellow').click(function (ev) {
-            $('ul').each(function (i, v) {
-                $(this).children().last().css('background', 'yellow');
-            });
-        });
-
-        $('h3').click(function (ev) {
-            $(this).next().each( function (i, v) {
-                $(this).children().css('font-weight', 'bold');
-            });
-        });
-
-        $('li').click(function (ev) {
-            $(this).parent().children().first().css('color', 'blue');
-        });
-    }
-</script>
+<script src="js/jquery_faq.js"></script>
 </body>
 </html>

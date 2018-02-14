@@ -68,13 +68,22 @@
     let boxes = $('.box');
     let turnOne = true;
 
+    function checkWin(num) {
+        return false;
+    }
+
     boxes.each( function (i, v) {
        $(this).click(function (event) {
            $(this).addClass( (turnOne) ? 'bg-x' : 'bg-o' );
            $(this).off('click');
+
+           if( checkWin() )
+               alert( (turnOne) ? "Bombs Wins" : "Rupees Wins" );
+
            turnOne = !turnOne;
        });
     });
+
 </script>
 </body>
 </html>
