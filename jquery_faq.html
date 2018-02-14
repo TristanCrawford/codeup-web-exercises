@@ -18,13 +18,41 @@
             margin-left: 16px;
         }
     </style>
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen" charset="utf-8">
 </head>
 <body>
 
-<h2>Please Register</h2>
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Please Register To Continue Using Our Site</h5>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <span class="input-group-addon">E-Mail</span>
+                    <input class="form-control" type="email" placeholder="johndoe@gmail.com">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Username</span>
+                    <input class="form-control" type="text" placeholder="JohnDoe">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Password</span>
+                    <input class="form-control" type="password" placeholder="hunter2">
+                </div>
+                <a class="btn btn-success center-block" href="#" data-dismiss="modal">Register</a>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-default" href="#" data-dismiss="modal">Close</a>
+            </div>
+        </div>
+    </div>
+</div>
 
-<div id="newsletter">
-    <h1>Would You Like To Sign Up For Our Newsletter? <span>x</span></h1>
+<div class="alert alert-warning alert-dismissable" role="alert">
+    <button class="close" data-dismiss="alert"><span>&times;</span></button>
+    Sign Up For Our Newsletter!
 </div>
 
 <dl>
@@ -75,6 +103,7 @@
 <button id="yellow" type="submit">Yellow</button>
 
 <script src="js/jquery-2.2.4.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script src="js/jquery_faq.js"></script>
 </body>
 </html>
