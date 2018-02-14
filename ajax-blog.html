@@ -1,36 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>AJAX Blog</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen" charset="utf-8">
-</head>
-<body>
-    <div class="container">
-        <div id="posts"></div>
-    </div>
+    <head>
+        <meta charset="UTF-8">
+        <title>AJAX Blog</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen" charset="utf-8">
+    </head>
+    <body>
+        <div class="container">
+            <div id="posts"></div>
+        </div>
 
-    <script src="js/jquery-2.2.4.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script>
-    {
-        "use strict";
+        <script src="js/jquery-2.2.4.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script>
+        {
+            "use strict";
 
-        $.get('/data/blog.json').done( (data, status, jqXhr) => {
-            data.forEach( (obj) => {
-                let el = `<div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">${obj.title}</h3></div><div class="panel-body">${obj.content}</div><div class="panel-footer">${obj.date}<p class="pull-right">${obj.categories}</p></div></div>`;
+            $.get('/data/blog.json').done( (data, status, jqXhr) => {
+                data.forEach( (obj) => {
+                    
+                    let html = '';
+                    html += '<div class="panel panel-default">';
+                    html += '<div class="panel-heading"><h3 class="panel-title">' + obj.title + '</h3></div>';
+                    html += '<div class="panel-body">' + obj.content + '</div>';
+                    html += '<div class="panel-footer">' + '<span>' + obj.date + '</span>' + '<span class="pull-right">' + obj.categories + '</span></div>';
+                    html += '</div>';
 
-                let html;
-                html += '<div class="panel panel-default">';
-                html += '<div class="panel-heading"><h3 class="panel-title">' + obj.title + '</h3></div>';
-                html += '<div class="panel-body">' + obj.content + '</div>';
-                html += '<div class="panel-footer">' + '<span>' + obj.date + '</span>' + '<span class="pull-right">' + obj.categories + '</span>';
-                html += '</div>';
-
-                $('#posts').append(html);
+                    $('#posts').append(html);
+                });
             });
-        });
-    }
-    </script>
-</body>
+        }
+        </script>
+    </body>
 </html>
