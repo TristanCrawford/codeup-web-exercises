@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>Weather Map API</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen" charset="utf-8">
+        <style> 
+            body {
+                padding-top: 1.5rem;
+            }
+
+            #map-canvas {
+                height: 50rem;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="container">
+
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-2">
+                    <div class="form-group">
+                        <label for="city">Location</label>
+                        <input id="city" type="text" class="form-control text-center">
+                    </div>
+				</div>
+			</div>
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="panel panel-info">
+                        <div class="panel-heading" href="#map" data-toggle="collapse" style="cursor: pointer;">
+                            <h3 class="panel-title">Map</h3>
+                        </div>
+                        <div id="map" class="panel-body collapse">
+                            <div id="map-canvas"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Weather Forecast</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="weather" class="row"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/jquery-2.2.4.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACZuNhBm9mkbAEwlz4h1xJpOixuOvT8GA&callback=initializeMap" async defer></script>
+        <script src="js/weather_map.js"></script>
+    </body>
+</html>
