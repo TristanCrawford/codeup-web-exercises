@@ -15,7 +15,7 @@
         gitHub.then( (response) => {
             response.json().then( (response) => {
                 let gitHub = response.filter( (v) => v.type === 'PushEvent' )[0];
-                console.log( `Last Commit "${gitHub.payload.commits[0].message}" at ${gitHub.created_at}` );
+                console.log( `${username}'s Last Commit: "${gitHub.payload.commits[0].message}" at ${gitHub.created_at}` );
             });
         });
 
@@ -25,4 +25,5 @@
     }
 
     getCommits('TristanCrawford');
+    getCommits('alyxanhscott');
 }

@@ -43,5 +43,5 @@
         return a;
     }, {});
 
-    console.log(filtered, mapped, reduced);
+    console.log(reduced);
 }
