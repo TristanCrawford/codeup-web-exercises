@@ -2,5 +2,4 @@
 *.iml
 node_modules/
 package*.json
-promises.js
 api_keys.js

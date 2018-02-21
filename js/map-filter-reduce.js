@@ -34,8 +34,10 @@
         },
     ];
 
-    let filtered = users.filter( (v) => v.languages.length > 2 );
-    let mapped = users.map( (v) => v.email );
+    let filtered = users.filter( user => user.languages.length > 2 );
+
+    let mapped = users.map( user => user.email );
+
     let reduced = users.reduce( (a, {id, name, email, languages}) => {
         a[id] = {name, email, languages};
         return a;
